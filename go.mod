@@ -8,6 +8,8 @@ require (
 	github.com/go-playground/locales v0.14.2
 	github.com/go-playground/universal-translator v0.18.2
 	github.com/go-playground/validator/v10 v10.30.5
+	github.com/go-resty/resty/v2 v2.8.0
+	github.com/jinzhu/copier v0.4.0
 	go.uber.org/zap v1.28.0
 )
 

@@ -1,0 +1,25 @@
+package service
+
+import (
+	"fmt"
+
+	"github.com/ropehapi/hexagonal-hun-coding/application/domain"
+	"github.com/ropehapi/hexagonal-hun-coding/application/port/output"
+	"github.com/ropehapi/hexagonal-hun-coding/configuration/logger"
+	"github.com/ropehapi/hexagonal-hun-coding/configuration/rest_err"
+)
+
+type newsService struct{
+	newsPort output.NewsPort
+}
+
+func NewNewsService(newsPort output.NewsPort) *newsService {
+	return &newsService{newsPort}
+}
+
+func (ns *newsService) GetNewsService(newsDomain domain.NewsReqDomain) (*domain.NewsDomain, *rest_err.RestErr){
+	logger.Info(fmt.Sprintf("Init getNewsService function, subject=%s, from=%s", newsDomain.Subject, newsDomain.From))
+	
+	newsDomainResponse, err := ns.newsPort.GetNewsPort(newsDomain)
+	return newsDomainResponse, err
+}

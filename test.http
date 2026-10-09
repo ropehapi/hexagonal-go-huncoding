@@ -1,0 +1,1 @@
+GET http://localhost:8080/news?subject=bolsonaro&from=2023-09-01 HTTP/2
